@@ -148,10 +148,11 @@ class OrdersController extends Controller
 
     private function makeRequestPlaceToPay(Order $order)
     {
+        
         return [
             'payment' => [
                 'reference' => $order->id,
-                'description' => 'Testing payment',
+                'description' => 'Testing payment ' . $order->id,
                 'amount' => [
                     'currency' => 'COP',
                     'total' => random_int(10000, 100000),
