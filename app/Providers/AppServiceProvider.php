@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Dnetix\Redirection\PlacetoPay;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        return $this->app->singleton(PlacetoPay::class, function ($app) {
+            return new PlacetoPay([
+                'login' => env('KEY_PLACETOPAY'),
+                'tranKey' => env('TRANKEY_PLACETOPAY'),
+                'url' => env('URL_PLACETOPAY'),
+            ]);
+        });
     }
 
     /**
@@ -23,6 +30,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+    }
+
+    public function provides()
+    {
+        return [
+            PlacetoPay::class,
+        ];
     }
 }
