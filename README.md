@@ -2,6 +2,7 @@
 
 - PHP >7
 - database name: evertec (MySQL)
+- php artisan migrate
 - composer install
 
 ## About Laravel
