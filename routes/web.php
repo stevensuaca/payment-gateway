@@ -22,3 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('orders', 'OrdersController');
+
+Route::get('/test', function(){
+    return 'test';
+});

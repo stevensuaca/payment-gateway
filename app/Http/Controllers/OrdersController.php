@@ -158,7 +158,7 @@ class OrdersController extends Controller
                     'total' => random_int(10000, 100000),
                 ],
             ],
-            'expiration' => date('c', strtotime('+2 days')),
+            'expiration' => date('c', strtotime('+10 minutes')),
             'returnUrl' => route('orders.show', [$order->id]),
             'ipAddress' => '127.0.0.1',
             'userAgent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
